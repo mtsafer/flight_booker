@@ -1,0 +1,4 @@
+<h1>This is a project from <a href="http://www.theodinproject.com/ruby-on-rails/building-advanced-forms">The Odin Project</a>.</h1>
+<p>We'll be creating a one-way flight booker. You'll get lots of practice populating and building dropdown menus, radio buttons, and nested submissions. Let the fun begin!</p>
+<br>
+<p>This project will require you to seed your database, so use your db/seeds.rb file to write the code necessary to populate Airports and Flights. One trick for toy apps like this (don't do it for production!) is to make your seeds file ::delete_all items from each table in your database and then completely repopulate them. That way, when you create a new model or change how you want your sample data set up, you can just update the seeds.rb file and rerun $ rake db:seed.</p>
