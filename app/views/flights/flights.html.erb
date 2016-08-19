@@ -1,0 +1,42 @@
+<%= form_for(:flight, url: "/", method: :get) do |f|%>
+	<%= f.label :From %>
+	<%= f.select(:from, @airport_options) %>
+	<%= f.label :To %>
+	<%= f.select(:to, @airport_options) %>
+	<%= f.label :Passengers %>
+	<%= f.select(:passengers, @passenger_options) %>
+	<%= f.label :date %>
+	<%= f.select(:start_time, @time_options) %>
+	<%= f.submit "Find Flights", class: "btn btn-primary" %>
+<% end %>
+
+<% unless @matched_flights.nil? %>
+
+	<h3>Matching Flights (<%= @matched_flights.count %>)</h3>
+	<%= form_for(:booking, url: new_booking_path, method: :get) do |f| %>
+		<%= f.hidden_field :passengers, value: @passengers%>
+		<% @matched_flights.each do |flight| %>
+			<div class="flight">
+				<ul>
+					<li>
+						<p>FROM: <%= flight.from_airport.code %></p>
+					</li>
+					<li>
+						<p>TO: <%= flight.to_airport.code %></p>
+					</li>
+					<li>
+						<p>DEPARTURE: <%= flight.start_time_formatted_with_time %></p>
+					</li>
+					<li>
+						<p>DURATION: <%= flight.duration %></p>
+					</li>
+				</ul>
+				<div class="button">
+					<%= f.label "chosen_flight_#{flight.id}", "Select This Flight" %>
+					<%= f.radio_button :chosen_flight, flight.id%>
+				</div>
+			</div>
+		<% end %>
+		<%= f.submit "Select Flight", class: "btn btn-primary" %>
+	<% end %>
+<% end %>

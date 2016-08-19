@@ -1,0 +1,21 @@
+<h1>Finish Booking Your Flight!</h1>
+
+<p><strong>DEPARTURE DATE</strong>: <%= @flight.start_time_formatted_with_time %></p>
+<p><strong>FROM</strong>: <%= @flight.from_airport.code %></p>
+<p><strong>TO</strong>: <%= @flight.to_airport.code %></p>
+<p><strong>FLIGHT ID</strong>: <%=@flight.id%></p>
+<p><strong># OF PASSENGERS</strong>: <%=@passengers_count%></p>
+
+<%= form_for @booking do |f| %>
+	<%= f.hidden_field :flight_id, value: @flight.id %>
+			<%= f.fields_for :passengers do |p| %>
+				<div class="passenger-form">
+				<%= p.label :Name %>
+				<%= p.text_field :name %>
+				<%= p.label :Email %>
+				<%= p.text_field :email %>
+				</div>
+			<% end %>
+	<%= f.submit "Complete Booking", class: "btn btn-primary" %>
+<% end %>
+

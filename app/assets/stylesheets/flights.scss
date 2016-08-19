@@ -1,0 +1,40 @@
+// Place all the styles related to the Flights controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+label {
+	display: block;
+	font-weight: bold;
+}
+
+select {
+	display: block;
+}
+
+.btn {
+	margin-top: 20px;
+}
+
+li {
+	list-style: none;
+}
+
+.flight {
+	border-top: 1px solid black;
+}
+
+ul {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+.button {
+	display: inline-block;
+	input{
+		margin: auto;
+	}
+	text-align: center;
+	margin-left: 20px;
+}
